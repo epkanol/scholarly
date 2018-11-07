@@ -55,6 +55,10 @@ class TestScholarly(unittest.TestCase):
         self.assertEqual(author.name, u'Steven A. Cholewiak')
         self.assertEqual(author.id, u'4bahYMkAAAAJ')
 
+    def test_custom_publication_url(self):
+        pubs = [ p for p in scholarly.search_pubs_custom_url('/scholar?cites=14833523990057642889&scipsc=1&q="agile+testing"+OR+"developer+testing"&btnG=') ]
+        self.assertGreaterEqual(len(pubs), 228)
+
 if __name__ == '__main__':
     unittest.main()
     

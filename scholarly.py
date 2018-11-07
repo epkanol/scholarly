@@ -21,9 +21,10 @@ import time
 _GOOGLEID = hashlib.md5(str(random.random()).encode('utf-8')).hexdigest()[:16]
 _COOKIES = {'GSP': 'ID={0}:CF=4'.format(_GOOGLEID)}
 _HEADERS = {
-    'accept-language': 'en-US,en',
-    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/41.0.2272.76 Chrome/41.0.2272.76 Safari/537.36',
-    'accept': 'text/html,application/xhtml+xml,application/xml'
+    'Accept-Language': 'en-US,en;q=0.5',
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Upgrade-Insecure-Requests': '1'
     }
 _HOST = 'https://scholar.google.com'
 _AUTHSEARCH = '/citations?view_op=search_authors&hl=en&mauthors={0}'
@@ -42,6 +43,9 @@ _EMAILAUTHORRE = r'Verified email at '
 _SESSION = requests.Session()
 _PAGESIZE = 100
 
+class CaptchaError(Exception):
+    def __init__(self, expression):
+        Exception.__init__(self, expression)
 
 def _handle_captcha(url):
     # TODO: PROBLEMS HERE! NEEDS ATTENTION
@@ -66,17 +70,18 @@ def _handle_captcha(url):
     print('Forwarded to {0}'.format(resp_captcha.url))
     return resp_captcha.url
 
-
+MIN_TIME=15
+FUZZY_TIME = 5
 def _get_page(pagerequest):
     """Return the data for a page on scholar.google.com"""
     # Note that we include a sleep to avoid overloading the scholar server
-    time.sleep(5+random.uniform(0, 5))
+    time.sleep(MIN_TIME+random.uniform(0, FUZZY_TIME))
     resp = _SESSION.get(pagerequest, headers=_HEADERS, cookies=_COOKIES)
     if resp.status_code == 200:
         return resp.text
     if resp.status_code == 503:
         # Inelegant way of dealing with the G captcha
-        raise Exception('Error: {0} {1}'.format(resp.status_code, resp.reason))
+        raise CaptchaError('Error: {0} {1}'.format(resp.status_code, resp.reason))
         # TODO: Need to fix captcha handling
         # dest_url = requests.utils.quote(_SCHOLARHOST+pagerequest)
         # soup = BeautifulSoup(resp.text, 'html.parser')
@@ -215,7 +220,6 @@ class Publication(object):
 
     def __str__(self):
         return pprint.pformat(self.__dict__)
-
 
 class Author(object):
     """Returns an object for a single author"""

@@ -16,126 +16,78 @@ from argparse import ArgumentParser
 P1 = {
     '_filled': False,
     'bib': {
-        'abstract': """By recognizing that software development is not a mechanical task, you can create better applications.
- Today's software development projects are often based on the traditional software engineering model, which was created to develop large-scale defense projects...""",
-         'author': 'P McBreen',
-         'title': 'Software craftsmanship: The new imperative',
-         'url': 'https://books.google.com/books?hl=en&lr=&id=C9vvHV1lIawC&oi=fnd&pg=PR13&dq=Mcbreen+software+craftsmanship&ots=pO1q4ygQhK&sig=0UcYAyqvQSTY9pZfJ9N6how-zHc'
+         'author': 'P Taylor',
+         'title': 'Vernacularism in Software Design Practice: does craftsmanship have a place in software engineering?',
     },
-    'citedby': 130,
-    'id_scholarcitedby': '9992022440740016231',
-    'source': 'scholar',
-    'url_scholarbib': 'https://scholar.googleusercontent.com/scholar.bib?q=info:Z1AKSHjLqooJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAW89A8xOVS3_12We0OgVskryJY6om85y5&scisf=4&ct=citation&cd=0&hl=en'
-    }
+    'id_scholarcitedby': '11957781116725793580'
+}
+
 P2 = {
     '_filled': False,
     'bib': {
-        'abstract': """Extreme Programming (XP) was conceived and developed to address the specific needs of software development
- conducted by small teams in the face of vague and changing requirements. This new lightweight methodology
- challenges many conventional tenets, including the long-held assumption that the cost of changing a piece
- of software necessarily rises dramatically over the course of time. XP recognizes that projects have to work
- to achieve this reduction in cost and exploit the savings once they have been earned...""",
-         'author': 'K Beck and E Gamma',
-         'eprint': 'https://scholar.google.comhttp://javacup.ir/avan/files/article/ASTA%20-%20XP%20Explained.pdf',
-         'title': 'Extreme programming explained: embrace change',
-         'url': 'https://books.google.com/books?hl=en&lr=&id=G8EL4H4vf7UC&oi=fnd&pg=PR13&dq=Kent+Beck+Extreme+Programming+explained&ots=jawDvnkUzk&sig=G8S9x-bSw5v-kzdtSAKhZLfwEDE'
+         'author': 'M Paasivaara, C Lassenius',
+         'title': 'Communities of practice in a large distributed agile software development organization–Case Ericsson',
     },
-    'citedby': 11586,
-    'id_scholarcitedby': '14833523990057642889',
-    'source': 'scholar',
-    'url_scholarbib': 'https://scholar.googleusercontent.com/scholar.bib?q=info:ieueQnpD280J:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAW89prYwtVI6thcjSKliBhkdCUn4w1C6K&scisf=4&ct=citation&cd=0&hl=en'
-    }
+    'id_scholarcitedby': '17290640592074044656'
+}
+
 P3 = {
     '_filled': False,
     'bib': {
-        'abstract': """As the application of object technology--particularly the Java programming language--has become commonplace, a
- new problem has emerged to confront the software development community. Significant numbers of poorly designed programs have been created by less...""",
-         'author': 'M Fowler and K Beck and J Brant and W Opdyke and D Roberts',
-         'eprint': 'https://scholar.google.comhttp://www.academia.edu/download/35991683/refactoring.pdf',
-         'title': 'Refactoring: improving the design of existing code',
-         'url': 'https://books.google.com/books?hl=en&lr=&id=UTgFCAAAQBAJ&oi=fnd&pg=PR7&dq=Martin+Fowler+Refactoring&ots=WhURcvXA3e&sig=va-49AO5csjbbkyN28ZBXcvOWvI'
+         'author': 'Rodriguez, Mikkonen, Kuvaja, Oivo, Garbajosa',
+         'title': 'Building lean thinking in a telecom software developement organization: strengths and challenges',
     },
-    'citedby': 7917,
-    'id_scholarcitedby': '878980806807878846',
-    'source': 'scholar',
-    'url_scholarbib': 'https://scholar.googleusercontent.com/scholar.bib?q=info:vnwrAmPEMgwJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAW89raOqVkvOcIJqsVqtOfEVTAJAt-XWn&scisf=4&ct=citation&cd=0&hl=en'
-    }
+    'id_scholarcitedby': '8937478263825285117'
+}
+
 P4 = {
     '_filled': False,
     'bib': {
-        'author': 'L Crispin and J Gregory',
-        'title': 'Agile testing: A practical guide for testers and agile teams'
+         'author': 'Lingel, Regan',
+         'title': """"it's in your spinal cord, it's in your fingertips": practices of tools and craft in building software""",
     },
- 'citedby': 282,
- 'id_scholarcitedby': '4780550892992702017',
- 'source': 'scholar',
- 'url_scholarbib': 'https://scholar.googleusercontent.com/scholar.bib?q=info:QaaBb7XtV0IJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAW89sUDLK9ggPG6NgSoBkQh1zoTd7Nc4e&scisf=4&ct=citation&cd=0&hl=en'
+    'id_scholarcitedby': '14258254205316660031'
 }
+
 P5 = {
     '_filled': False,
     'bib': {
-        'author': 'RC Martin',
-        'eprint': 'https://scholar.google.comhttps://www.redshifter.org/book/413654649/download-clean-code-a-handbook-of-agile-software-craftsmanship.pdf',
-        'title': 'Clean code: a handbook of agile software craftsmanship'
+         'author': 'I Jacobson, E Seidewitz',
+         'title': """A new software engineering"""
     },
-    'citedby': 817,
-    'id_scholarcitedby': '6031327959174725948',
-    'source': 'scholar',
-    'url_scholarbib': 'https://scholar.googleusercontent.com/scholar.bib?q=info:PMF90tKUs1MJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAW89s3z_AhD-ymPnT1kHvHPC33Cs7MRu6&scisf=4&ct=citation&cd=0&hl=en'
-}
-P8 =  {
-    '_filled': False,
-    'bib': {
-        'abstract': """We conducted a quasi-experiment to compare the characteristics of experts' and novices' test-driven 
-development processes. Our novices were 11 computers science students who participated in an Extreme Programming lab course,
-the expert group consisted of seven professionals who had industrial experience in test-driven development. 
-The novices as well as two of the experts worked in a laboratory environment whereas the remaining five experts worked in their office.
-The experts complied more to the rules of test-driven development and\xa0…""",
-         'author': 'MM Müller and A Höfer\xa0- Empirical Software Engineering and 2007',
-         'eprint': 'https://scholar.google.comhttps://link.springer.com/content/pdf/10.1007/s10664-007-9048-2.pdf',
-         'title': 'The effect of experience on the test-driven development process',
-         'url': 'https://link.springer.com/article/10.1007/s10664-007-9048-2'
-    },
-    'citedby': 52,
-    'id_scholarcitedby': '14565201090169922408',
-    'source': 'scholar',
-    'url_scholarbib': 'https://scholar.googleusercontent.com/scholar.bib?q=info:aOO1xTj9IcoJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAW9A-wciC2rzLCTXixUWJXKgyJlSDbTrw&scisf=4&ct=citation&cd=0&hl=en'
-}
-P9 = {
-    '_filled': False,
-    'bib': {
-         'abstract': """Background: Test-Driven Development (TDD) is claimed to have positive effects on external code quality and
-programmers' productivity. The main driver for these possible improvements is the tests enforced by the test-first nature of TDD 
-as previously investigated in a controlled experiment (ie the original study). Aim: Our goal is to examine the nature of the relationship
-between tests and external code quality as well as programmers' productivity in order to verify/refute the results of the original study. Method: We conducted a\xa0…""",
-         'author': 'D Fucci and B Turhan\xa0- Empirical Software Engineering and 2014',
-         'eprint': 'https://scholar.google.comhttps://link.springer.com/article/10.1007/s10664-013-9259-7',
-         'title': 'On the role of tests in test-driven development: a differentiated and partial replication',
-         'url': 'https://link.springer.com/article/10.1007/s10664-013-9259-7'
-    },
-    'citedby': 23,
-    'id_scholarcitedby': '1516483469463706449',
-    'source': 'scholar',
-    'url_scholarbib': 'https://scholar.googleusercontent.com/scholar.bib?q=info:UdsiSa6hCxUJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAW9BBmxuvjDTkQoMO41csxFicAnFE2Xqt&scisf=4&ct=citation&cd=0&hl=en'
-}
-P10 = { 
-    '_filled': False,
-    'bib': {
-        'abstract': """The technical debt metaphor is gaining significant traction in the software development community as a way
-to understand and communicate about issues of intrinsic quality, value, and cost. This is a report on a second workshop on managing 
-technical debt, which took place as part of the 33rd International Conference on Software Engineering (ICSE 2011). The goal of this second 
-workshop was to discuss the management of technical debt: to assess current practice in industry and to further refine a research agenda for software\xa0…""",
-         'author': 'I Ozkaya and P Kruchten and RL Nord and N Brown\xa0- ACM SIGSOFT Software\xa0… and 2011',
-         'eprint': 'https://scholar.google.comhttp://www.dtic.mil/dtic/tr/fulltext/u2/1015406.pdf',
-         'title': 'Managing technical debt in software development: report on the 2nd international workshop on managing technical debt, held at ICSE 2011',
-         'url': 'https://dl.acm.org/citation.cfm?id=2020979'
-    },
-    'citedby': 19,
-    'id_scholarcitedby': '6986788749151307637',
-    'source': 'scholar',
-    'url_scholarbib': 'https://scholar.googleusercontent.com/scholar.bib?q=info:dQfciVkP9mAJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAW9BCnoacYAro6RcsiHTfYuVARgCUTOCW&scisf=4&ct=citation&cd=0&hl=en'
+    'id_scholarcitedby': '11364895964135352608'
 }
 
+P6 = {
+    '_filled': False,
+    'bib': {
+         'author': 'Lucena, Tizzei',
+         'title': """Applying software craftsmanship practices to a scrum project: an experience report"""
+    },
+    'id_scholarcitedby': '12556728404775473251'
+}
+
+P7 = {
+    '_filled': False,
+    'bib': {
+         'author': 'Coplien',
+         'title': """Borland software craftsmanship: A new look at process, quality and productivity"""
+    },
+    'id_scholarcitedby': '14714561442407932239'
+}
+
+P8 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Pyritz',
+        'title': """Craftsmanship versus engineering: Computer programming - An art or a science?"""
+    },
+    'id_scholarcitedby': '6423741856014791786'
+}
+
+PAPERS = [P1, P2, P3, P4, P5, P6, P7, P8]
+
+Q0 = ''
 Q1 = '"software+craftsmanship"+OR+"software+craft"'
 Q2 = '"agile+testing"+OR+"developer+testing"'
 Q3 = '"refactoring"'
@@ -214,7 +166,12 @@ class ScholarInfo:
             for key in val:
                 pub = defaultdict(lambda: None, self.get_item(key))
                 bib = defaultdict(lambda: None, pub['bib'])
-                out.writerow([key, bib['author'], bib['title'], bib['url']])
+                out.writerow([key, bib['author'], bib['title'], bib['url'], self.replace_newline(bib['abstract'])])
+
+    def replace_newline(self, line):
+        if line:
+            return re.sub('[\r\n]', ' ', line)
+        return ''
 
     def progress(self, char, **kwargs):
         if self.progressbar:
@@ -227,7 +184,7 @@ if __name__ == '__main__':
     parser.add_argument("-i", "--id", dest="id", help="Print cached info for given id")
     parser.add_argument("-l", "--limit", dest="limit", default=100, help="Limit to the specified number of pages")
     parser.add_argument("-o", "--out", dest="out", default="/tmp/out.csv", help="Output file to write result to")
-    parser.add_argument("-p", "--paper", dest="paper", help="Show references for given paper")
+    parser.add_argument("-p", "--paper", dest="paper", help="Show references for given paper, either 1-8, or a GScholar reference id")
     parser.add_argument("-q", "--query", dest="query", help="Search given query")
     parser.add_argument("-s", "--start", dest="start", default=0, help="Start fetching result at this item")
     parser.add_argument("-t", "--time", dest="time", default=15, help="Min time between page fetches")
@@ -244,10 +201,14 @@ if __name__ == '__main__':
         val = [scholar.get_item(args.id)]
         pprint.pprint(val)
     elif args.paper:
-        val = scholar.search_all_citations(args.paper, start=args.start, limit=args.limit)
+        if re.match("[1-8]$", args.paper):
+            paperid = PAPERS[int(args.paper)-1]['id_scholarcitedby']
+        else:
+            paperid = args.paper
+        val = scholar.search_all_citations(paperid, start=args.start, limit=args.limit)
         scholar.write_csv(args.out)
     elif args.query:
-        val = scholar.search_query(Q1, start=args.start, limit=args.limit)
+        val = scholar.search_query(args.query, start=args.start, limit=args.limit)
         scholar.write_csv(args.out)
     else:
         val = scholar.search_all_citations(scholar.citation_index(P8), start=args.start, limit=args.limit)

@@ -10,8 +10,10 @@ import sys
 import gzip
 import csv
 import pprint
+import contextlib
 from collections import defaultdict
 from argparse import ArgumentParser
+
 
 P1 = {
     '_filled': False,
@@ -97,6 +99,20 @@ Q6 = '"code+kata"+OR+"coding+kata"+OR+"coding+dojo"'
 Q7 = '"automated+regression+testing"+OR+"automated+acceptance+test-driven+development"'
 Q8 = '"test-driven+development"+OR+"behaviour-driven+development"+OR+"behavior-driven+development"'
 
+
+@contextlib.contextmanager
+def smart_open(filename=None, *args, **kwargs):
+    if filename and filename != '-':
+        fh = open(filename, *args, **kwargs)
+    else:
+        fh = sys.stdout
+    try:
+        yield fh
+    finally:
+        if fh is not sys.stdout:
+            fh.close()
+
+
 class ScholarInfo:
     def __init__(self, progress=False):
         home = os.path.expanduser("~")
@@ -161,7 +177,7 @@ class ScholarInfo:
         return self.publications[key]
 
     def write_csv(self, filename):
-        with open(filename, mode='wt', encoding='utf-8', newline='') as f:
+        with smart_open(filename, mode='wt', encoding='utf-8', newline='') as f:
             out = csv.writer(f, delimiter=';')
             for key in val:
                 pub = defaultdict(lambda: None, self.get_item(key))
@@ -184,6 +200,7 @@ if __name__ == '__main__':
     parser.add_argument("-i", "--id", dest="id", help="Print cached info for given id")
     parser.add_argument("-l", "--limit", dest="limit", default=100, help="Limit to the specified number of pages")
     parser.add_argument("-o", "--out", dest="out", default="/tmp/out.csv", help="Output file to write result to")
+    parser.add_argument("-O", "--stdout", dest="stdout", default=False, action="store_true", help="Write result on stdout instead of file")
     parser.add_argument("-p", "--paper", dest="paper", help="Show references for given paper, either 1-8, or a GScholar reference id")
     parser.add_argument("-q", "--query", dest="query", help="Search given query")
     parser.add_argument("-s", "--start", dest="start", default=0, help="Start fetching result at this item")
@@ -192,10 +209,13 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    scholarly.MIN_TIME = args.time
-    scholarly.FUZZY_TIME = args.randtime
+    scholarly.MIN_TIME = int(args.time)
+    scholarly.FUZZY_TIME = int(args.randtime)
 
     scholar = ScholarInfo(args.progress)
+
+    if args.stdout:
+        args.out = None
 
     if args.id:
         val = [scholar.get_item(args.id)]

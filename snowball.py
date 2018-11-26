@@ -86,8 +86,33 @@ P8 = {
     },
     'id_scholarcitedby': '6423741856014791786'
 }
+P9 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Parsons, Susnjak, Mathrani',
+        'title': """Design from detail: Analyzing data from a global day of coderetreat"""
+    },
+    'id_scholarcitedby': '15407616062721785800'
+}
+P10 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Lindell',
+        'title': """Crafting interaction: The epistemology of modern programming"""
+    },
+    'id_scholarcitedby': '1692253220231960690'
+}
+P11 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Thomas',
+        'title': """Professional Developers Practice their Kata to Stay Sharp."""
+    },
+    'id_scholarcitedby': '5221862126554876987'
+}
 
-PAPERS = [P1, P2, P3, P4, P5, P6, P7, P8]
+
+PAPERS = [P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11]
 
 Q0 = ''
 Q1 = '"software+craftsmanship"+OR+"software+craft"'
@@ -201,7 +226,7 @@ if __name__ == '__main__':
     parser.add_argument("-l", "--limit", dest="limit", default=100, help="Limit to the specified number of pages")
     parser.add_argument("-o", "--out", dest="out", default="/tmp/out.csv", help="Output file to write result to")
     parser.add_argument("-O", "--stdout", dest="stdout", default=False, action="store_true", help="Write result on stdout instead of file")
-    parser.add_argument("-p", "--paper", dest="paper", help="Show references for given paper, either 1-8, or a GScholar reference id")
+    parser.add_argument("-p", "--paper", dest="paper", help="Show references for given paper, either number, or a GScholar reference id")
     parser.add_argument("-q", "--query", dest="query", help="Search given query")
     parser.add_argument("-s", "--start", dest="start", default=0, help="Start fetching result at this item")
     parser.add_argument("-t", "--time", dest="time", default=15, help="Min time between page fetches")
@@ -221,7 +246,7 @@ if __name__ == '__main__':
         val = [scholar.get_item(args.id)]
         pprint.pprint(val)
     elif args.paper:
-        if re.match("[1-8]$", args.paper):
+        if re.match("[1-9][0-9]*$", args.paper) and int(args.paper) <= len(PAPERS):
             paperid = PAPERS[int(args.paper)-1]['id_scholarcitedby']
         else:
             paperid = args.paper

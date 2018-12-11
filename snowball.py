@@ -89,12 +89,23 @@ P8 = {
 P9 = {
     '_filled': False,
     'bib': {
+        'author': 'Cannizzo, Marcionetti, Moser',
+        'title': """The toolbox of a successful software craftsman"""
+    },
+    'id_scholarcitedby': '15144062171041887130'
+}
+
+
+# iterations: A, B, C, D, E, F...
+A1 = {
+    '_filled': False,
+    'bib': {
         'author': 'Parsons, Susnjak, Mathrani',
         'title': """Design from detail: Analyzing data from a global day of coderetreat"""
     },
     'id_scholarcitedby': '15407616062721785800'
 }
-P10 = {
+B1 = {
     '_filled': False,
     'bib': {
         'author': 'Lindell',
@@ -102,7 +113,7 @@ P10 = {
     },
     'id_scholarcitedby': '1692253220231960690'
 }
-P11 = {
+B2 = {
     '_filled': False,
     'bib': {
         'author': 'Thomas',
@@ -110,9 +121,25 @@ P11 = {
     },
     'id_scholarcitedby': '5221862126554876987'
 }
+B3 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Parsons, Mathrani, Susnjak, Leist',
+        'title': """Coderetreats: Reflective practice and the game of life."""
+    },
+    'id_scholarcitedby': '6642521362428190128'
+}
+C1 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Sedano',
+        'title': """Towards Teaching Software Craftsmanship"""
+    },
+    'id_scholarcitedby': '12982590899850192680'
+}
 
 
-PAPERS = [P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11]
+PAPERS = [P1, P2, P3, P4, P5, P6, P7, P8, P9, A1, B1, B2, B3, C1]
 
 Q0 = ''
 Q1 = '"software+craftsmanship"+OR+"software+craft"'

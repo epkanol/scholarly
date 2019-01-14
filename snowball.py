@@ -105,6 +105,14 @@ A1 = {
     },
     'id_scholarcitedby': '15407616062721785800'
 }
+A2 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Coleman, Golub',
+        'title': """Hacker practice: Moral genres and the cultural articulation of liberalism"""
+    },
+    'id_scholarcitedby': '16587073785586606782'
+}
 B1 = {
     '_filled': False,
     'bib': {
@@ -129,6 +137,14 @@ B3 = {
     },
     'id_scholarcitedby': '6642521362428190128'
 }
+B4 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Boehm',
+        'title': """A view of 20th and 21st century software engineering"""
+    },
+    'id_scholarcitedby': '10396715177147953575'
+}
 C1 = {
     '_filled': False,
     'bib': {
@@ -137,9 +153,39 @@ C1 = {
     },
     'id_scholarcitedby': '12982590899850192680'
 }
+C2 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Bergstrom, Blackwell',
+        'title': """The practices of programming"""
+    },
+    'id_scholarcitedby': '18033504412147772166'
+}
+C3 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Lindell',
+        'title': """The craft of programming interaction"""
+    },
+    'id_scholarcitedby': '15388489263681681984'
+}
+D1 = {
+    '_filled': False,
+    'bib': {
+        'author': 'Wirth',
+        'title': """A brief history of software engineering"""
+    },
+    'id_scholarcitedby': '15006974699014906087'
+}
 
 
-PAPERS = [P1, P2, P3, P4, P5, P6, P7, P8, P9, A1, B1, B2, B3, C1]
+PAPERS = {
+    "P": [P1, P2, P3, P4, P5, P6, P7, P8, P9],
+    "A": [A1, A2],
+    "B": [B1, B2, B3, B4],
+    "C": [C1, C2, C3],
+    "D": [D1]
+}
 
 Q0 = ''
 Q1 = '"software+craftsmanship"+OR+"software+craft"'
@@ -273,8 +319,11 @@ if __name__ == '__main__':
         val = [scholar.get_item(args.id)]
         pprint.pprint(val)
     elif args.paper:
-        if re.match("[1-9][0-9]*$", args.paper) and int(args.paper) <= len(PAPERS):
-            paperid = PAPERS[int(args.paper)-1]['id_scholarcitedby']
+        match = re.match("([a-zA-Z])([1-9][0-9]{0,3})$", args.paper)
+        if match:
+            iteration = match.group(1)
+            papernumber = int(match.group(2))
+            paperid = PAPERS[iteration.upper()][papernumber-1]['id_scholarcitedby']
         else:
             paperid = args.paper
         val = scholar.search_all_citations(paperid, start=args.start, limit=args.limit)

@@ -101,8 +101,10 @@ def _get_soup(pagerequest):
 def _search_scholar_soup(soup):
     """Generator that returns Publication objects from the search page"""
     while True:
-        for row in soup.find_all('div', 'gs_r'):
+        for row in soup.find_all('div', 'gs_or'):
             yield Publication(row, 'scholar')
+        if soup.find('div', id='gs_captcha_ccl'):
+            raise CaptchaError('Error - hit CAPTCHA limit')
         if soup.find(class_='gs_ico gs_ico_nav_next'):
             url = soup.find(class_='gs_ico gs_ico_nav_next').parent['href']
             soup = _get_soup(_HOST+url)
@@ -115,6 +117,8 @@ def _search_citation_soup(soup):
     while True:
         for row in soup.find_all('div', 'gsc_1usr'):
             yield Author(row)
+        if soup.find('div', id='gs_captcha_ccl'):
+            raise CaptchaError('Error - hit CAPTCHA limit')
         next_button = soup.find(class_='gs_btnPR gs_in_ib gs_btn_half gs_btn_lsb gs_btn_srt gsc_pgn_pnx')
         if next_button and 'disabled' not in next_button.attrs:
             url = next_button['onclick'][17:-1]
